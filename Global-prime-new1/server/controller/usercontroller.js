@@ -243,6 +243,34 @@ exports.fetchalljoblist = async function (req,res){
 
 }
 
+exports.fetchsingledata = async function (req,res){
+    try {
+        getuserData= await joblist.findOne();
+        console.log("getuserData",getuserData);
+        let response = success_function({
+         success: true,
+         statuscode: 200,
+         message: "successfully get all data ..",
+         data :getuserData
+        })
+        res.status(response.statuscode).send(response)
+        return;
+ 
+    } catch (error) {
+ 
+        console.log("error : ", error);
+        let response = error_function({
+         success: false,
+         statuscode: 400,
+         message: "error"
+        })
+        res.status(response.statuscode).send(response)
+        return;
+    }
+
+}
+
+
 exports.deletejoblist = async function (req,res){
     try {
         DeleteId = req.params.id 

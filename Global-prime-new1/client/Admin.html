@@ -53,14 +53,14 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto p-lg-0">
                     <a href="Admin.html" class="nav-item nav-link active"><span class="text_hover  fw-bold">Home</span></a>
-                    <a href="about.html" class="nav-item nav-link text_hover">About</a>
+                    <!-- <a href="about.html" class="nav-item nav-link text_hover">About</a> -->
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle text_hover" data-bs-toggle="dropdown">Jobs</a>
                         <div class="dropdown-menu rounded-0 m-0">
-                            <a href="job-list.html" class="dropdown-item">Job List</a>
-                            <a href="job-detail.html" class="dropdown-item">Job Detail</a>
-                            <a href="add_job.html" class="dropdown-item">Add Job</a>
-                            <a href="applicationVeiw.html" class="dropdown-item">View Appliction</a>
+                            <!-- <a href="job-list.html" class="dropdown-item">Job List</a>
+                            <a href="job-detail.html" class="dropdown-item">Job Detail</a> -->
+                            <span class="dropdown-item" onclick="addJob()">Add Job</span>
+                            <span class="dropdown-item" onclick="jobApplication()">View Appliction</span>
 
                         </div>
                     </div>
@@ -906,6 +906,7 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script src="./js/script.js"></script>
 </body>
 
 </html>

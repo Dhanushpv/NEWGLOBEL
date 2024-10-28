@@ -24,6 +24,7 @@ router.delete('/purgeUser/:id',setAccessControl('1'), userController.deleteuserD
 // Admin routes
 router.post('/jobList',setAccessControl('1'), userController.jobList); // Admins only
 router.get('/joblist',setAccessControl('*'), userController.fetchalljoblist);
+router.get('/joblist/:id',setAccessControl('*'), userController.fetchsingledata);
 router.delete('/purgejoblist/:id',setAccessControl('1'), userController.deletejoblist); // Admins only
 
 module.exports = router;

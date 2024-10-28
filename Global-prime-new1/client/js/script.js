@@ -1,5 +1,4 @@
 
-
 async function applyJob(event) {
     event.preventDefault();
 
@@ -56,14 +55,31 @@ async function applyJob(event) {
     }
 }
 
+function jobApplication(){
+    let params = new URLSearchParams(window.location.search);
+
+    let token_key = params.get('login');
+
+    window.location = `applicationVeiw.html?login=${token_key}`
+}
+
 async function ApplicationView() {
     
-    console.log("reached at .....")
+    let params = new URLSearchParams(window.location.search);
+    console.log('params',params);
+
+    let token_key = params.get('login');
+    console.log("token_key",token_key);
+
+    let token = localStorage.getItem(token_key)
 
     try {
             
         const response = await fetch('/user', {
             method: 'GET',
+            headers : {
+                'Authorization' : `Bearer ${token}`
+            }
         });
         if (!response.ok) {
             throw new Error('Network response was not ok');
@@ -114,8 +130,25 @@ async function ApplicationView() {
 
 }
 
+function addJob(){
+    let params = new URLSearchParams(window.location.search);
+
+    let token_key = params.get('login');
+
+    window.location = `add_job.html?login=${token_key}`
+}
+
 async function addjob(event) {
     event.preventDefault();
+
+    let params = new URLSearchParams(window.location.search);
+    console.log('params',params);
+
+    let token_key = params.get('login');
+    console.log("token_key",token_key);
+
+    let token = localStorage.getItem(token_key);
+
 
     // Collect form values
     let jobTitle = document.getElementById('jobtitle').value;
@@ -160,7 +193,8 @@ async function addjob(event) {
                 let response = await fetch('/jobList', {  // Use your backend URL
                     method: 'POST',
                     headers: {
-                        "Content-Type": "application/json",
+                         "Content-Type" : "Application/json",
+                        'Authorization' : `Bearer ${token}`
                     },
                     body: strData,
                 });
@@ -179,7 +213,7 @@ async function addjob(event) {
 
                 if (response.status === 200) {
                     alert('Job successfully added!');
-                    document.getElementById('addJobForm').reset();  // Reset the form
+                    window.location='add_job.html'  // Reset the form
                 } else {
                     alert('Something went wrong. Please try again.');
                 }
@@ -197,7 +231,6 @@ async function addjob(event) {
 
 async function View(){
     // event.preventDefault()
-    console.log("reached at .....")
 
     try {
             
@@ -208,10 +241,10 @@ async function View(){
             throw new Error('Network response was not ok');
         }
         const parsed_data = await response.json();
-        console.log(parsed_data)
+    
 
         let data = parsed_data.data
-        console.log("data",data);
+        
 
         const tableBody = document.getElementById('joblist');
         let row='';
@@ -238,7 +271,7 @@ async function View(){
                     <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
                         <div class="d-flex mb-3">
                             <a class="btn btn-light btn-square me-3" href=""><i class="far fa-heart text-primary"></i></a>
-                            <a class="btn btn-primary" href="">Apply Now</a>
+                            <span class="btn btn-primary" onclick="applyNow('${data[i]._id}')">Apply Now</span>
                         </div>
                         <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line:${data[i].DateLine}</small>
                     </div>
@@ -257,3 +290,323 @@ async function View(){
     }
     
 }
+//  function applyNow(id){
+//     let params = new URLSearchParams(window.location.search);
+//     let id = params.get('id');
+//     window.location = `job-detail.html?id=${id}`
+
+//  }
+ 
+//  async function showDetails() {
+//     console.log("Fetching job details...");
+
+//     // Get the job ID from URL parameters
+//     let params = new URLSearchParams(window.location.search);
+//     let id = params.get('id');
+
+//     try {
+//         // Fetch job details using the job ID
+//         const response = await fetch(`/joblist/${id}`, {
+//             method: 'GET',
+//         });
+
+//         if (!response.ok) {
+//             throw new Error('Network response was not ok');
+//         }
+
+//         const parsed_data = await response.json();
+//         console.log(parsed_data);
+
+//         let data = parsed_data.data;
+
+//         // Check if data exists
+//         if (!data) {
+//             throw new Error('No job data found');
+//         }
+
+//         const DetailsView = document.getElementById('Details');
+//         let rows = '';
+
+//         // Generate job details dynamically
+//         rows += `
+//             <div class="container">
+//                 <div class="row gy-5 gx-4">
+//                     <div class="col-lg-8">
+//                         <div class="d-flex align-items-center mb-5">
+//                             <img class="flex-shrink-0 img-fluid border rounded" src="${data.imageInput}" alt="Job Image" style="width: 80px; height: 80px;">
+//                             <div class="text-start ps-4">
+//                                 <h3 class="mb-3">${data.jobTitle}</h3>
+//                                 <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>${data.jobLocation}</span>
+//                                 <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>${data.jobTime}</span>
+//                                 <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>${data.salary}</span>
+//                             </div>
+//                         </div>
+//                         <div class="mb-5">
+//                             <h4 class="mb-3">Job Description</h4>
+//                             <p>${data.Job_description}</p>
+//                             <h4 class="mb-3">Responsibility</h4>
+//                             <p>${data.Responsibility}</p>
+//                             <h4 class="mb-3">Qualifications</h4>
+//                             <p>${data.Qualifications}</p>
+//                         </div>
+//                         <div>
+//                             <h4 class="mb-4">Apply For The Job</h4>
+//                             <form onsubmit="applyJob(event)">
+//                                 <div class="row g-3">
+//                                     <div class="col-12 col-sm-6">
+//                                         <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+//                                     </div>
+//                                     <div class="col-12 col-sm-6">
+//                                         <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+//                                     </div>
+//                                     <div class="col-12 col-sm-6">
+//                                         <input type="text" class="form-control" id="portfolio" placeholder="Portfolio Website" required>
+//                                     </div>
+//                                     <div class="col-12 col-sm-6">
+//                                         <input type="file" id="image" class="form-control bg-white" accept="image/*" required>
+//                                     </div>
+//                                     <div class="col-12">
+//                                         <textarea class="form-control" rows="5" id="coverLetter" placeholder="Cover Letter" required></textarea>
+//                                     </div>
+//                                     <div class="col-12">
+//                                         <button class="btn btn-primary w-100" type="submit">Apply Now</button>
+//                                     </div>
+//                                 </div>
+//                             </form>
+//                         </div>
+//                     </div>
+//                     <div class="col-lg-4">
+//                         <div class="bg-light rounded p-5 mb-4">
+//                             <h4 class="mb-4">Job Summary</h4>
+//                             <p><i class="fa fa-angle-right text-primary me-2"></i>Published On: ${data.DateLine}</p>
+//                             <p><i class="fa fa-angle-right text-primary me-2"></i>Job Nature: ${data.jobTime}</p>
+//                             <p><i class="fa fa-angle-right text-primary me-2"></i>Salary: ${data.salary}</p>
+//                             <p><i class="fa fa-angle-right text-primary me-2"></i>Location: ${data.jobLocation}</p>
+//                             <p class="m-0"><i class="fa fa-angle-right text-primary me-2"></i>Deadline: ${data.DateLine}</p>
+//                         </div>
+//                         <div class="bg-light rounded p-5">
+//                             <h4 class="mb-4">Company Detail</h4>
+//                             <p class="m-0">${data.CompanyDetail || 'No company details available.'}</p>
+//                         </div>
+//                     </div>
+//                 </div>
+//             </div>
+//         `;
+
+//         // Display the details
+//         DetailsView.innerHTML = rows;
+
+//     } catch (error) {
+//         console.error('Fetch error:', error);
+//         // Optionally, display a user-friendly message on the UI
+//         document.getElementById('Details').innerHTML = `<p>Error loading job details. Please try again later.</p>`;
+//     }
+// }
+// Function to redirect user to the job details page when they click to apply for a job
+function applyNow(id) {
+    window.location = `job-detail.html?id=${id}`;
+}
+
+// Function to fetch and display job details
+async function showDetails() {
+    console.log("Fetching job details...");
+
+    // Get the job ID from URL parameters
+    let params = new URLSearchParams(window.location.search);
+    let id = params.get('id');
+    console.log("Job ID:", id);  // Debugging: Check if the ID is correct
+
+    try {
+        // Fetch job details using the job ID
+        const response = await fetch(`/joblist/${id}`, {
+            method: 'GET',
+        });
+
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+
+        const parsed_data = await response.json();
+        console.log(parsed_data);  // Debugging: Log the fetched data
+
+        let data = parsed_data.data;
+
+        // Check if data exists
+        if (!data) {
+            throw new Error('No job data found');
+        }
+
+        const DetailsView = document.getElementById('Details');
+        let rows = '';
+
+        // Generate job details dynamically
+        rows += `
+            <div class="container">
+                <div class="row gy-5 gx-4">
+                    <div class="col-lg-8">
+                        <div class="d-flex align-items-center mb-5">
+                            <img class="flex-shrink-0 img-fluid border rounded" src="${data.imageInput}" alt="Job Image" style="width: 80px; height: 80px;">
+                            <div class="text-start ps-4">
+                                <h3 class="mb-3">${data.jobTitle}</h3>
+                                <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>${data.jobLocation}</span>
+                                <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>${data.jobTime}</span>
+                                <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>${data.salary}</span>
+                            </div>
+                        </div>
+                        <div class="mb-5">
+                            <h4 class="mb-3">Job Description</h4>
+                            <p>${data.Job_description}</p>
+                            <h4 class="mb-3">Responsibility</h4>
+                            <p>${data.Responsibility}</p>
+                            <h4 class="mb-3">Qualifications</h4>
+                            <p>${data.Qualifications}</p>
+                        </div>
+                        <div>
+                            <h4 class="mb-4">Apply For The Job</h4>
+                            <form onsubmit="applyJob(event)">
+                                <div class="row g-3">
+                                    <div class="col-12 col-sm-6">
+                                        <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <input type="text" class="form-control" id="portfolio" placeholder="Portfolio Website" required>
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <input type="file" id="image" class="form-control bg-white" accept="image/*" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <textarea class="form-control" rows="5" id="coverLetter" placeholder="Cover Letter" required></textarea>
+                                    </div>
+                                    <div class="col-12">
+                                        <button class="btn btn-primary w-100" type="submit">Apply Now</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="bg-light rounded p-5 mb-4">
+                            <h4 class="mb-4">Job Summary</h4>
+                            <p><i class="fa fa-angle-right text-primary me-2"></i>Published On: ${data.DateLine}</p>
+                            <p><i class="fa fa-angle-right text-primary me-2"></i>Job Nature: ${data.jobTime}</p>
+                            <p><i class="fa fa-angle-right text-primary me-2"></i>Salary: ${data.salary}</p>
+                            <p><i class="fa fa-angle-right text-primary me-2"></i>Location: ${data.jobLocation}</p>
+                            <p class="m-0"><i class="fa fa-angle-right text-primary me-2"></i>Deadline: ${data.DateLine}</p>
+                        </div>
+                        <div class="bg-light rounded p-5">
+                            <h4 class="mb-4">Company Detail</h4>
+                            <p class="m-0">${data.CompanyDetail || 'No company details available.'}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        // Display the details
+        DetailsView.innerHTML = rows;
+
+    } catch (error) {
+        console.error('Fetch error:', error);
+        // Optionally, display a user-friendly message on the UI
+        document.getElementById('Details').innerHTML = `<p>Error loading job details. Please try again later.</p>`;
+    }
+}
+
+// This function should handle the form submission
+function applyJob(event) {
+    event.preventDefault();  // Prevent default form submission
+
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const portfolio = document.getElementById('portfolio').value;
+    const coverLetter = document.getElementById('coverLetter').value;
+    const image = document.getElementById('image').files[0];
+
+    // Add your form submission logic here (e.g., send a POST request to the server)
+    console.log("Applying with the following details:");
+    console.log({ name, email, portfolio, coverLetter, image });
+}
+
+
+
+//  window.onload=showDetails
+
+
+
+
+
+async function access() {
+
+    console.log("reached....")
+
+    window.location.href = 'login.html'
+    
+}
+
+async function loginControll(event){
+    event.preventDefault();
+    console.log("reached.....")
+
+    let email = document.getElementById('email').value
+
+    let password = document.getElementById('password').value
+
+
+
+
+    let data ={
+        email,
+        password
+    }
+
+   let strdata = JSON.stringify(data);
+
+   
+   try {
+    let response = await fetch('/login',{
+        method : 'POST',
+        headers : {
+            'Content-Type' : 'application/json'
+        },
+        body : strdata
+    });
+
+
+    let parsed_Response = await response.json();
+
+
+    let token_data = parsed_Response.data
+
+
+    let user_type = token_data.usertypes.usertype;
+
+    let token = token_data.token;
+
+    let id =token_data.id;
+
+
+    let token_key = id;
+    
+    
+    localStorage.setItem(token_key, token);
+
+
+
+
+    if(user_type ==='admin'){
+        
+        window.location =`Admin.html?login=${token_key}`
+    }
+  
+
+
+
+   } catch (error) {
+    console.log("error",error);
+   }
+ 
+}
+
