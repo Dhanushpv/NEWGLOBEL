@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>JobEntry - Job Portal Website Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="bg-white p-0">
+        <!-- Spinner Start -->
+        <div id="spinner"
+            class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+        <!-- Navbar Start -->
+        <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+            <a href="index.html" class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
+                <h1 class="m-0 text-primary d-flex align-items-center">
+                    <img style="width: 70px;" class="px-2" src="img/global[1]-1-min-min.png" alt="">Globel Prime
+                </h1>
+            </a>
+            <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse"
+                data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto p-lg-0">
+                    <a href="index.html" class="nav-item nav-link active">
+                        <span class="text_hover fw-bold" data-lang-en="Home" data-lang-pl="Strona główna"
+                            data-lang-de="Startseite">Home</span>
+                    </a>
+                    <a href="about.html" class="nav-item nav-link text_hover">
+                        <span data-lang-en="About" data-lang-pl="O nas" data-lang-de="Über uns">About</span>
+                    </a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle text_hover" data-bs-toggle="dropdown">
+                            <span data-lang-en="Jobs" data-lang-pl="Praca" data-lang-de="Jobs">Jobs</span>
+                        </a>
+                        <div class="dropdown-menu rounded-0 m-0">
+                            <a href="job-list.html" class="dropdown-item">
+                                <span data-lang-en="Job List" data-lang-pl="Lista ofert pracy"
+                                    data-lang-de="Stellenliste">Job List</span>
+                            </a>
+                            <a href="job-detail.html" class="dropdown-item">
+                                <span data-lang-en="Job Detail" data-lang-pl="Szczegóły oferty"
+                                    data-lang-de="Stellenbeschreibung">Job Detail</span>
+                            </a>
+                            <a href="Admin.html" class="dropdown-item">
+                                <span data-lang-en="Job Detail" data-lang-pl="Szczegóły oferty"
+                                    data-lang-de="Stellenbeschreibung">Admin</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle text_hover" data-bs-toggle="dropdown">
+                            <span data-lang-en="Pages" data-lang-pl="Strony" data-lang-de="Seiten">Pages</span>
+                        </a>
+                        <div class="dropdown-menu rounded-0 m-0">
+                            <a href="sub_combany.html" class="dropdown-item">
+                                <span data-lang-en="Sub Company" data-lang-pl="Podfirma"
+                                    data-lang-de="Untergesellschaft">Globel Green Groves</span>
+                            </a>
+                            <!-- Add more pages if needed -->
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-item nav-link text_hover">
+                        <span data-lang-en="Contact" data-lang-pl="Kontakt" data-lang-de="Kontakt">Contact</span>
+                    </a>
+                </div>
+                <a href="job-list.html" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block"
+                    id="post-job-btn" data-lang-en="Post A Job" data-lang-pl="Dodaj ofertę pracy"
+                    data-lang-de="Stellenanzeige aufgeben">
+                    Post A Job<i class="fa fa-arrow-right ms-3"></i>
+                </a>
+            </div>
+            <!-- Language Switcher Start -->
+            <div class="dropdown language-switcher">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="languageDropdown"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Language
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                    <li><a class="dropdown-item" href="#" onclick="setLanguage('en', 'English')">English</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="setLanguage('pl', 'Polish')">Polish</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="setLanguage('de', 'German')">German</a></li>
+                </ul>
+            </div>
+            <!-- Language Switcher End -->
+        </nav>
+        <!-- Navbar End -->
+
+
+
+
+
+        <!-- Carousel Start -->
+        <div class="container-fluid p-0">
+            <div class="owl-carousel header-carousel position-relative">
+                <div class="owl-carousel-item position-relative">
+                    <img class="img-fluid" src="img/heber-davis-E15BQufHzJs-unsplash.jpg"
+                        style="width: 100%; height: 800px;" alt="">
+                    <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
+                        style="background: rgba(43, 57, 64, .5);">
+                        <div class="container">
+                            <div class="row justify-content-start">
+                                <div class="col-10 col-lg-8">
+                                    <h1 class="display-3 text-white animated slideInDown mb-4"
+                                        data-lang-en="Find The Perfect Job That You Deserved"
+                                        data-lang-pl="Znajdź idealną pracę, na którą zasługujesz"
+                                        data-lang-de="Finde den perfekten Job, den du verdienst">
+                                        Find The Perfect Job That You Deserved
+                                    </h1>
+                                    <p class="fs-5 fw-medium text-white mb-4 pb-2"
+                                        data-lang-en="Discover job opportunities tailored to your skills and career goals. Connect with top employers, apply effortlessly, and let our smart matching technology guide you to roles where you can thrive. Whether you’re starting fresh, changing paths, or leveling up, your dream job awaits. Start your journey now!"
+                                        data-lang-pl="Odkryj możliwości pracy dostosowane do Twoich umiejętności i celów zawodowych. Połącz się z najlepszymi pracodawcami, aplikuj bez wysiłku i pozwól naszej inteligentnej technologii dopasowania poprowadzić Cię do ról, w których możesz się rozwijać. Niezależnie od tego, czy zaczynasz, zmieniasz ścieżkę kariery, czy awansujesz, wymarzona praca czeka. Rozpocznij swoją podróż już teraz!"
+                                        data-lang-de="Entdecken Sie Jobmöglichkeiten, die auf Ihre Fähigkeiten und Karriereziele zugeschnitten sind. Verbinden Sie sich mühelos mit Top-Arbeitgebern und lassen Sie unsere intelligente Matching-Technologie Sie zu Positionen führen, in denen Sie erfolgreich sein können. Ob Sie neu anfangen, den Weg wechseln oder aufsteigen, Ihr Traumjob wartet. Starten Sie jetzt Ihre Reise!">
+                                        Discover job opportunities tailored to your skills and career goals. Connect
+                                        with top employers, apply effortlessly, and let our smart matching technology
+                                        guide you to roles where you can thrive. Whether you’re starting fresh, changing
+                                        paths, or leveling up, your dream job awaits. Start your journey now!
+                                    </p>
+
+                                    <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft"
+                                        data-lang-en="Search A Job" data-lang-pl="Szukaj pracy"
+                                        data-lang-de="Job suchen">
+                                        Search A Job
+                                    </a>
+                                    <a href="" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight"
+                                        data-lang-en="Find A Talent" data-lang-pl="Znajdź talent"
+                                        data-lang-de="Finde ein Talent">
+                                        Find A Talent
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="owl-carousel-item position-relative">
+                    <img class="img-fluid" src="img/2151589655.jpg" style="width: 100%; height: 800px;" alt="">
+                    <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
+                        style="background: rgba(43, 57, 64, .5);">
+                        <div class="container">
+                            <div class="row justify-content-start">
+                                <div class="col-10 col-lg-8">
+                                    <h1 class="display-3 text-white animated slideInDown mb-4"
+                                        data-lang-en="Find The Best Startup Job That Fit You"
+                                        data-lang-pl="Znajdź najlepszą pracę w startupie, która do Ciebie pasuje"
+                                        data-lang-de="Finde den besten Startup-Job, der zu dir passt">
+                                        Find The Best Startup Job That Fit You
+                                    </h1>
+                                    <p class="fs-5 fw-medium text-white mb-4 pb-2"
+                                        data-lang-en="Connect with top startups looking for talent like yours. Discover roles that match your skills, passions, and career goals, and take the next step in your journey!"
+                                        data-lang-pl="Połącz się z najlepszymi startupami poszukującymi talentów takich jak Ty. Odkryj role, które odpowiadają Twoim umiejętnościom, pasjom i celom zawodowym, i zrób krok naprzód w swojej karierze!"
+                                        data-lang-de="Verbinden Sie sich mit den besten Startups, die nach Talenten wie Ihnen suchen. Entdecken Sie Rollen, die zu Ihren Fähigkeiten, Leidenschaften und Karrierezielen passen, und machen Sie den nächsten Schritt in Ihrer Laufbahn!">
+                                        Connect with top startups looking for talent like yours. Discover roles that
+                                        match your skills, passions, and career goals, and take the next step in your
+                                        journey!
+                                    </p>
+
+                                    <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft"
+                                        data-lang-en="Search A Job" data-lang-pl="Szukaj pracy"
+                                        data-lang-de="Job suchen">
+                                        Search A Job
+                                    </a>
+                                    <a href="" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight"
+                                        data-lang-en="Find A Talent" data-lang-pl="Znajdź talent"
+                                        data-lang-de="Finde ein Talent">
+                                        Find A Talent
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Carousel End -->
+
+
+
+        <!-- Search Start -->
+        <!-- <div class="container-fluid bg-primary mb-5 wow fadeIn" data-wow-delay="0.1s" style="padding: 35px;">
+            <div class="container">
+                <div class="row g-2">
+                    <div class="col-md-10">
+                        <div class="row g-2">
+                            <div class="col-md-4">
+                                <input type="text" class="form-control border-0" placeholder="Keyword" />
+                            </div>
+                            <div class="col-md-4">
+                                <select class="form-select border-0">
+                                    <option selected>Category</option>
+                                    <option value="1">Category 1</option>
+                                    <option value="2">Category 2</option>
+                                    <option value="3">Category 3</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <select class="form-select border-0">
+                                    <option selected>Location</option>
+                                    <option value="1">Location 1</option>
+                                    <option value="2">Location 2</option>
+                                    <option value="3">Location 3</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-dark border-0 w-100">Search</button>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <!-- Search End -->
+
+        <!-- Who We Are Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <h1 class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s" data-lang-en="Who We Are"
+                    data-lang-pl="Kim jesteśmy" data-lang-de="Wer wir sind">
+                    Who We Are
+                </h1>
+                <h5 class="text-center mb-5 wow fadeInUp fs-6 px-6" data-wow-delay="0.1s" style="text-align: justify;"
+                    data-lang-en="Established in 2024, global prime has since been diversifying into various endeavors and international joint ventures as manpower job placement consultants, headed by a team of experienced management, and we provide jobs in Europe and employ talented professionals."
+                    data-lang-pl="Założona w 2024 roku, Global prime od tego czasu dywersyfikuje się w różne przedsięwzięcia i międzynarodowe wspólne przedsięwzięcia jako konsultanci w zakresie pozyskiwania pracowników, kierowani przez zespół doświadczonego zarządzania, a my oferujemy pracę w Europe i zatrudniamy utalentowanych profesjonalistów."
+                    data-lang-de="Gegründet im Jahr 2024, hat sich Global prime seither in verschiedene Unternehmungen und internationale Joint Ventures diversifiziert, als Personalvermittler geleitet von einem erfahrenen Managementteam, und wir bieten Jobs in Europe an und beschäftigen talentierte Fachkräfte.">
+                    Established in 2024, Globa prime Limited Liability Company has since been diversifying into various
+                    endeavors and international
+                    joint ventures as manpower job placement consultants, headed by a team of experienced management,
+                    and we provide jobs in Europe and employ talented professionals.
+                </h5>
+                <div class="row g-4">
+                    <div class="col-lg-6 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <a class="cat-item rounded p-1" href="">
+                            <img class="img-fluid" src="img/3904.jpg" style="width: 100%;height: 400px;" alt="">
+                        </a>
+                    </div>
+                    <div class="col-lg-6 col-sm-6 wow fadeInUp subtext" data-wow-delay="0.3s">
+                        <div class="text-center"><img class="img-fluid" src="img/com-logo-1.jpg" alt=""></div>
+                        <a class="p-1" href="" style="text-align: justify;">
+                            <p class="">
+                                <span style="text-align: justify;"
+                                    data-lang-en="Ever since Globel Prime was built, its objective is to provide manpower jobs and other miscellaneous work to companies. We hire the optimal and make the excellence of them. Global prime is keenly dedicated to expand in all different kind of fields relating to service, in order to satisfy our customers, companies, and employees. Our uncompromising principle has led us to such achievements. We believe in changing to a better world."
+                                    data-lang-pl="Od momentu powstania Globel Prime jego celem jest zapewnienie pracy w zakresie siły roboczej oraz innych różnorodnych zadań dla firm. Zatrudniamy najlepszych i osiągamy doskonałość. Global prime z zaangażowaniem dąży do rozwoju we wszystkich różnych dziedzinach związanych z usługami, aby zadowolić naszych klientów, firmy i pracowników. Nasza bezkompromisowa zasada doprowadziła nas do takich osiągnięć. Wierzymy w zmianę na lepszy świat."
+                                    data-lang-de="Seit der Gründung von Globel Prime besteht das Ziel darin, Arbeitskräfte und andere verschiedene Aufgaben für Unternehmen bereitzustellen. Wir stellen die Besten ein und erreichen Exzellenz. Global prime ist bestrebt, in allen verschiedenen Bereichen, die mit Dienstleistungen zu tun haben, zu expandieren, um unsere Kunden, Unternehmen und Mitarbeiter zufriedenzustellen. Unser kompromissloses Prinzip hat uns zu solchen Erfolgen geführt. Wir glauben daran, eine bessere Welt zu verändern.">
+                                    Ever since Globel Prime was built, its objective is to provide manpower jobs and
+                                    other miscellaneous work to companies. We hire the optimal and make the excellence
+                                    of them. Global prime is keenly dedicated to expanding in all different kinds of
+                                    fields
+                                    relating to service, in order to satisfy our customers, companies, and employees.
+                                    Our uncompromising principle has led us to such achievements. We believe in changing
+                                    to a better world.
+                                </span>
+                            </p>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-6 col-sm-6 wow fadeInUp subtext_second" data-wow-delay="0.3s">
+                        <a class="p-1" href="" style="text-align: justify;">
+                            <h3 data-lang-en="GET YOUR EXATUAL ASSISTANT" data-lang-pl="UZYSKAJ SWOJEGO ASYSTENTA"
+                                data-lang-de="BEKOMMEN SIE IHREN EXATUAL ASSISTENTEN">
+                                GET YOUR EXATUAL ASSISTANT
+                            </h3>
+                            <h3 data-lang-en="Exatual Assistants doing the right things at the right time!"
+                                data-lang-pl="Asystenci Exatual robią właściwe rzeczy we właściwym czasie!"
+                                data-lang-de="Exatual-Assistenten tun die richtigen Dinge zur richtigen Zeit!">
+                                Exatual Assistants doing the right things at the right time!
+                            </h3>
+                            <span
+                                data-lang-en="Forward new normal that evolved from generation is on the runway heading towards streamlined cloud solution."
+                                data-lang-pl="Nowa norma, która wyewoluowała z pokolenia, zmierza w kierunku zharmonizowanego rozwiązania chmurowego."
+                                data-lang-de="Die neue Normalität, die aus der Generation entstanden ist, steuert auf eine optimierte Cloud-Lösung zu.">
+                                Forward new normal that evolved from generation is on the runway heading towards
+                                streamlined cloud solution.
+                            </span>
+                            <span class="d-flex justify-content-evenly align-items-center pt-4 ">
+                                <div class="p-2"><img
+                                        src="https://img.icons8.com/?size=100&id=20183&format=png&color=000000"
+                                        style="width: 50px;" alt=""></div>
+                                <div class="">
+                                    <div data-lang-en="Get decided business results"
+                                        data-lang-pl="Uzyskaj określone wyniki biznesowe"
+                                        data-lang-de="Entscheidende Geschäftsergebnisse erzielen">
+                                        Get decided business results
+                                    </div>
+                                    <div data-lang-en="Capitalize on low hanging deep fruit to identify value"
+                                        data-lang-pl="Skorzystaj z łatwych do uzyskania owoców, aby zidentyfikować wartość"
+                                        data-lang-de="Nutzen Sie einfach zu erreichende Früchte, um Wert zu identifizieren">
+                                        Capitalize on low hanging deep fruit to identify value
+                                    </div>
+                                </div>
+                            </span>
+
+                            <span class="d-flex justify-content-evenly align-items-center pt-4">
+                                <div class="p-2"><img
+                                        src="https://img.icons8.com/?size=100&id=97525&format=png&color=000000"
+                                        style="width: 50px;" alt=""></div>
+                                <div class="">
+                                    <div data-lang-en="Save time with qualified assistants"
+                                        data-lang-pl="Zaoszczędź czas dzięki wykwalifikowanym asystentom"
+                                        data-lang-de="Zeit mit qualifizierten Assistenten sparen">
+                                        Save time with qualified assistants
+                                    </div>
+                                    <div data-lang-en="Capitalize on low hanging deep fruit to identify value"
+                                        data-lang-pl="Skorzystaj z łatwych do uzyskania owoców, aby zidentyfikować wartość"
+                                        data-lang-de="Nutzen Sie einfach zu erreichende Früchte, um Wert zu identifizieren">
+                                        Capitalize on low hanging deep fruit to identify value
+                                    </div>
+                                </div>
+                            </span>
+
+                            <span class="d-flex justify-content-evenly align-items-center pt-4">
+                                <div class="p-2"><img
+                                        src="https://img.icons8.com/?size=100&id=999&format=png&color=000000"
+                                        style="width: 50px;" alt=""></div>
+                                <div class="">
+                                    <div data-lang-en="Quick formulate your all plans"
+                                        data-lang-pl="Szybko sformułuj wszystkie plany"
+                                        data-lang-de="Formulieren Sie schnell alle Ihre Pläne">
+                                        Quick formulate your all plans
+                                    </div>
+                                    <div data-lang-en="Capitalize on low hanging deep fruit to identify value"
+                                        data-lang-pl="Skorzystaj z łatwych do uzyskania owoców, aby zidentyfikować wartość"
+                                        data-lang-de="Nutzen Sie einfach zu erreichende Früchte, um Wert zu identifizieren">
+                                        Capitalize on low hanging deep fruit to identify value
+                                    </div>
+                                </div>
+                            </span>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-6 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <a class="cat-item rounded p-1" href="">
+                            <img class="img-fluid" src="img/31213.jpg" style="width: 100%;height: 500px;" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Who We Are End -->
+
+
+
+
+
+
+        <!-- Our Services Start -->
+        <div class="py-5">
+            <div class="container">
+                <h1 class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s" data-lang-en="Our Services"
+                    data-lang-pl="Nasze Usługi" data-lang-de="Unsere Dienstleistungen">Our Services</h1>
+                <h5 class="text-center mb-5 wow fadeInUp fs-6 px-6" data-wow-delay="0.1s" style="text-align: justify;"
+                    data-lang-en="Global prime as a welding outsourcing company and MIG, MAG and TIG outsourcing service, provides a wide and comprehensive range of professional services to both local and international businesses to meet your company's global business needs. Our firm is an assurance of the highest quality of skilled jobs service and skilled workers through our professional team especially if you are looking forward for a skilled manpower outsourcing agency."
+                    data-lang-pl="Global prime jako firma outsourcingowa zajmująca się spawaniem oraz usługami MIG, MAG i TIG, oferuje szeroką i kompleksową gamę usług profesjonalnych zarówno dla firm lokalnych, jak i międzynarodowych, aby sprostać globalnym potrzebom Twojej firmy. Nasza firma jest zapewnieniem najwyższej jakości usług pracy wykwalifikowanej i wykwalifikowanych pracowników poprzez nasz profesjonalny zespół, zwłaszcza jeśli szukasz agencji outsourcingowej wykwalifikowanej siły roboczej."
+                    data-lang-de="Global prime als Schweiß-Outsourcing-Unternehmen und MIG-, MAG- und TIG-Outsourcing-Service bietet eine breite und umfassende Palette professioneller Dienstleistungen für lokale und internationale Unternehmen, um den globalen Geschäftsbedürfnissen Ihres Unternehmens gerecht zu werden. Unsere Firma garantiert die höchste Qualität an Dienstleistungen für Fachkräfte und Facharbeiter durch unser professionelles Team, insbesondere wenn Sie auf der Suche nach einer Agentur für das Outsourcing von Fachkräften sind.">
+                    Global prime as a welding outsourcing company and MIG, MAG and TIG outsourcing service, provides a
+                    wide and
+                    comprehensive range of professional services to both local and international businesses to meet your
+                    company's global business needs. Our firm is an assurance of the highest quality of skilled jobs
+                    service and skilled workers through our professional team especially if you are looking forward for
+                    a skilled manpower outsourcing agency.
+                </h5>
+                <div class="row g-4 our-service">
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <img src="img/4832.jpg" alt="Welding Services" style="width:300px;height:300px;">
+                                </div>
+                                <div class="flip-card-back">
+                                    <h1 data-lang-en="Welding Services" data-lang-pl="Usługi Spawalnicze"
+                                        data-lang-de="Schweißdienste">Welding Services</h1>
+                                    <p data-lang-en="Our team of experts represents the best and brightest in the industry, and we are always striving to lead the field in research, innovation, and consumer education."
+                                        data-lang-pl="Nasz zespół ekspertów reprezentuje najlepszych i najjaśniejszych w branży i zawsze dążymy do bycia liderem w badaniach, innowacjach i edukacji konsumenckiej."
+                                        data-lang-de="Unser Expertenteam repräsentiert die Besten und Klügsten der Branche, und wir streben stets danach, in Forschung, Innovation und Verbraucherbildung führend zu sein.">
+                                        Our team of experts represents the best and brightest in the industry, and we
+                                        are always striving to lead the field in research, innovation, and consumer
+                                        education.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <img src="img/2151431368.jpg" alt="Construction Services"
+                                        style="width:300px;height:300px;">
+                                </div>
+                                <div class="flip-card-back">
+                                    <h1 data-lang-en="Construction Services" data-lang-pl="Usługi Budowlane"
+                                        data-lang-de="Bau Dienstleistungen">Construction Services</h1>
+                                    <p data-lang-en="We provide high-quality construction services for residential and commercial projects, ensuring timely completion, safety, and cost-effective solutions for new builds, renovations, and repairs."
+                                        data-lang-pl="Oferujemy usługi budowlane wysokiej jakości dla projektów mieszkaniowych i komercyjnych, zapewniając terminowe zakończenie, bezpieczeństwo i opłacalne rozwiązania dla nowych budynków, remontów i napraw."
+                                        data-lang-de="Wir bieten hochwertige Bauleistungen für Wohn- und Gewerbeprojekte an und sorgen für termingerechte Fertigstellung, Sicherheit und kosteneffiziente Lösungen für Neubauten, Renovierungen und Reparaturen.">
+                                        We provide high-quality construction services for residential and commercial
+                                        projects, ensuring timely completion, safety, and cost-effective solutions for
+                                        new builds, renovations, and repairs.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <img src="img/2151657872.jpg" alt="Skilled Worker Services"
+                                        style="width:300px;height:300px;">
+                                </div>
+                                <div class="flip-card-back">
+                                    <h1 data-lang-en="Skilled Worker Services"
+                                        data-lang-pl="Usługi Pracowników Wykwalifikowanych"
+                                        data-lang-de="Facharbeiter Dienstleistungen">Skilled Worker Services</h1>
+                                    <p data-lang-en="What is a world without the efforts of human effort and labour? No matter how many robots will come, they can’t replace human power. If you are looking for industrial related work, you are at the right place."
+                                        data-lang-pl="Czym byłby świat bez wysiłków ludzkich i pracy? Niezależnie od tego, ile robotów przyjdzie, nie mogą one zastąpić siły roboczej. Jeśli szukasz pracy związanej z przemysłem, jesteś w odpowiednim miejscu."
+                                        data-lang-de="Was ist eine Welt ohne die Bemühungen menschlicher Anstrengung und Arbeit? Egal, wie viele Roboter kommen werden, sie können die menschliche Kraft nicht ersetzen. Wenn Sie nach arbeitsbezogenen Industrien suchen, sind Sie hier genau richtig.">
+                                        What is a world without the efforts of human effort and labour? No matter how
+                                        many robots will come, they can’t replace human power. If you are looking for
+                                        industrial related work, you are at the right place.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <img src="img/94.jpg" alt="Production Worker Services"
+                                        style="width:300px;height:300px;">
+                                </div>
+                                <div class="flip-card-back">
+                                    <h1 data-lang-en="Production Worker Services"
+                                        data-lang-pl="Usługi Pracowników Produkcyjnych"
+                                        data-lang-de="Produktionsarbeiter Dienstleistungen">Production Worker Services
+                                    </h1>
+                                    <p data-lang-en="We offer skilled workers across industries like construction and manufacturing, providing professionals such as electricians, plumbers, carpenters, and general laborers to meet all project needs efficiently."
+                                        data-lang-pl="Oferujemy wykwalifikowanych pracowników w różnych branżach, takich jak budownictwo i produkcja, zapewniając profesjonalistów, takich jak elektrycy, hydraulicy, stolarze i robotnicy ogólni, aby skutecznie zaspokoić wszystkie potrzeby projektowe."
+                                        data-lang-de="Wir bieten Fachkräfte aus verschiedenen Branchen wie Bau und Fertigung an und stellen Fachleute wie Elektriker, Klempner, Tischler und allgemeine Arbeiter bereit, um alle Projektbedürfnisse effizient zu erfüllen.">
+                                        We offer skilled workers across industries like construction and manufacturing,
+                                        providing professionals such as electricians, plumbers, carpenters, and general
+                                        laborers to meet all project needs efficiently.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Our Services End -->
+
+
+
+
+
+        <!-- Category Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <h1 class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s" data-lang-en="Explore By Category"
+                    data-lang-pl="Zbadaj Kategorię" data-lang-de="Kategorie Erkunden">
+                    Explore By Category
+                </h1>
+                <div class="row g-4">
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <a class="cat-item rounded p-4" href="">
+                            <i class="fa fa-3x fa-mail-bulk text-primary mb-4"></i>
+                            <h6 class="mb-3" data-lang-en="Marketing" data-lang-pl="Marketing" data-lang-de="Marketing">
+                                Marketing
+                            </h6>
+                            <p class="mb-0" data-lang-en="Read More" data-lang-pl="Czytaj Więcej"
+                                data-lang-de="Mehr Erfahren">
+                                Read More
+                            </p>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <a class="cat-item rounded p-4" href="">
+                            <i class="fa fa-3x fa-headset text-primary mb-4"></i>
+                            <h6 class="mb-3" data-lang-en="Customer Service" data-lang-pl="Obsługa Klienta"
+                                data-lang-de="Kundenservice">
+                                Customer Service
+                            </h6>
+                            <p class="mb-0" data-lang-en="Read More" data-lang-pl="Czytaj Więcej"
+                                data-lang-de="Mehr Erfahren">
+                                Read More
+                            </p>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                        <a class="cat-item rounded p-4" href="">
+                            <i class="fa fa-3x fa-user-tie text-primary mb-4"></i>
+                            <h6 class="mb-3" data-lang-en="Human Resource" data-lang-pl="Zasoby Ludzkie"
+                                data-lang-de="Personalwesen">
+                                Human Resource
+                            </h6>
+                            <p class="mb-0" data-lang-en="Read More" data-lang-pl="Czytaj Więcej"
+                                data-lang-de="Mehr Erfahren">
+                                Read More
+                            </p>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                        <a class="cat-item rounded p-4" href="">
+                            <i class="fa fa-3x fa-tasks text-primary mb-4"></i>
+                            <h6 class="mb-3" data-lang-en="Project Management" data-lang-pl="Zarządzanie Projektem"
+                                data-lang-de="Projektmanagement">
+                                Project Management
+                            </h6>
+                            <p class="mb-0" data-lang-en="Read More" data-lang-pl="Czytaj Więcej"
+                                data-lang-de="Mehr Erfahren">
+                                Read More
+                            </p>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <a class="cat-item rounded p-4" href="">
+                            <i class="fa fa-3x fa-chart-line text-primary mb-4"></i>
+                            <h6 class="mb-3" data-lang-en="Business Development" data-lang-pl="Rozwój Biznesu"
+                                data-lang-de="Geschäftsentwicklung">
+                                Business Development
+                            </h6>
+                            <p class="mb-0" data-lang-en="Read More" data-lang-pl="Czytaj Więcej"
+                                data-lang-de="Mehr Erfahren">
+                                Read More
+                            </p>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <a class="cat-item rounded p-4" href="">
+                            <i class="fa fa-3x fa-hands-helping text-primary mb-4"></i>
+                            <h6 class="mb-3" data-lang-en="Sales & Communication" data-lang-pl="Sprzedaż i Komunikacja"
+                                data-lang-de="Verkauf & Kommunikation">
+                                Sales & Communication
+                            </h6>
+                            <p class="mb-0" data-lang-en="Read More" data-lang-pl="Czytaj Więcej"
+                                data-lang-de="Mehr Erfahren">
+                                Read More
+                            </p>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                        <a class="cat-item rounded p-4" href="">
+                            <i class="fa fa-3x fa-book-reader text-primary mb-4"></i>
+                            <h6 class="mb-3" data-lang-en="Teaching & Education" data-lang-pl="Nauczanie i Edukacja"
+                                data-lang-de="Lehre & Bildung">
+                                Teaching & Education
+                            </h6>
+                            <p class="mb-0" data-lang-en="Read More" data-lang-pl="Czytaj Więcej"
+                                data-lang-de="Mehr Erfahren">
+                                Read More
+                            </p>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                        <a class="cat-item rounded p-4" href="">
+                            <i class="fa fa-3x fa-drafting-compass text-primary mb-4"></i>
+                            <h6 class="mb-3" data-lang-en="Design & Creative" data-lang-pl="Projektowanie i Kreatywność"
+                                data-lang-de="Design & Kreativ">
+                                Design & Creative
+                            </h6>
+                            <p class="mb-0" data-lang-en="Read More" data-lang-pl="Czytaj Więcej"
+                                data-lang-de="Mehr Erfahren">
+                                Read More
+                            </p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Category End -->
+
+
+
+        <!-- About Start -->
+        <!-- <div class="container-xxl py-5">
+            <div class="container">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                        <div class="row g-0 about-bg rounded overflow-hidden">
+                            <div class="col-6 text-start">
+                                <img class="img-fluid w-100" src="img/about-1.jpg">
+                            </div>
+                            <div class="col-6 text-start">
+                                <img class="img-fluid" src="img/about-2.jpg" style="width: 85%; margin-top: 15%;">
+                            </div>
+                            <div class="col-6 text-end">
+                                <img class="img-fluid" src="img/about-3.jpg" style="width: 85%;">
+                            </div>
+                            <div class="col-6 text-end">
+                                <img class="img-fluid w-100" src="img/about-4.jpg">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                        <h1 class="mb-4">We Help To Get The Best Job And Find A Talent</h1>
+                        <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
+                        <p><i class="fa fa-check text-primary me-3"></i>Tempor erat elitr rebum at clita</p>
+                        <p><i class="fa fa-check text-primary me-3"></i>Aliqu diam amet diam et eos</p>
+                        <p><i class="fa fa-check text-primary me-3"></i>Clita duo justo magna dolore erat amet</p>
+                        <a class="btn btn-primary py-3 px-5 mt-3" href="">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <!-- About End -->
+
+
+        <!-- Jobs Start -->
+        <!-- <div class="container-xxl py-5">
+            <div class="container">
+                <h1 class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">Job Listing</h1>
+                <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.3s">
+                    <ul class="nav nav-pills d-inline-flex justify-content-center border-bottom mb-5">
+                        <li class="nav-item">
+                            <a class="d-flex align-items-center text-start mx-3 ms-0 pb-3 active" data-bs-toggle="pill" href="#tab-1">
+                                <h6 class="mt-n1 mb-0">Featured</h6>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="d-flex align-items-center text-start mx-3 pb-3" data-bs-toggle="pill" href="#tab-2">
+                                <h6 class="mt-n1 mb-0">Full Time</h6>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="d-flex align-items-center text-start mx-3 me-0 pb-3" data-bs-toggle="pill" href="#tab-3">
+                                <h6 class="mt-n1 mb-0">Part Time</h6>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="tab-1" class="tab-pane fade show p-0 active">
+                            <div class="job-item p-4 mb-4">
+                                <div class="row g-4">
+                                    <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                        <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-1.jpg" alt="" style="width: 80px; height: 80px;">
+                                        <div class="text-start ps-4">
+                                            <h5 class="mb-3">Software Engineer</h5>
+                                            <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
+                                            <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>Full Time</span>
+                                            <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                        <div class="d-flex mb-3">
+                                            <a class="btn btn-light btn-square me-3" href=""><i class="far fa-heart text-primary"></i></a>
+                                            <a class="btn btn-primary" href="">Apply Now</a>
+                                        </div>
+                                        <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="job-item p-4 mb-4">
+                                <div class="row g-4">
+                                    <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                        <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-2.jpg" alt="" style="width: 80px; height: 80px;">
+                                        <div class="text-start ps-4">
+                                            <h5 class="mb-3">Marketing Manager</h5>
+                                            <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
+                                            <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>Full Time</span>
+                                            <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                        <div class="d-flex mb-3">
+                                            <a class="btn btn-light btn-square me-3" href=""><i class="far fa-heart text-primary"></i></a>
+                                            <a class="btn btn-primary" href="">Apply Now</a>
+                                        </div>
+                                        <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="job-item p-4 mb-4">
+                                <div class="row g-4">
+                                    <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                        <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-3.jpg" alt="" style="width: 80px; height: 80px;">
+                                        <div class="text-start ps-4">
+                                            <h5 class="mb-3">Product Designer</h5>
+                                            <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
+                                            <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>Full Time</span>
+                                            <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                        <div class="d-flex mb-3">
+                                            <a class="btn btn-light btn-square me-3" href=""><i class="far fa-heart text-primary"></i></a>
+                                            <a class="btn btn-primary" href="">Apply Now</a>
+                                        </div>
+                                        <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="job-item p-4 mb-4">
+                                <div class="row g-4">
+                                    <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                        <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-4.jpg" alt="" style="width: 80px; height: 80px;">
+                                        <div class="text-start ps-4">
+                                            <h5 class="mb-3">Creative Director</h5>
+                                            <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
+                                            <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>Full Time</span>
+                                            <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                        <div class="d-flex mb-3">
+                                            <a class="btn btn-light btn-square me-3" href=""><i class="far fa-heart text-primary"></i></a>
+                                            <a class="btn btn-primary" href="">Apply Now</a>
+                                        </div>
+                                        <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="job-item p-4 mb-4">
+                                <div class="row g-4">
+                                    <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                        <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-5.jpg" alt="" style="width: 80px; height: 80px;">
+                                        <div class="text-start ps-4">
+                                            <h5 class="mb-3">Wordpress Developer</h5>
+                                            <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
+                                            <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>Full Time</span>
+                                            <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                        <div class="d-flex mb-3">
+                                            <a class="btn btn-light btn-square me-3" href=""><i class="far fa-heart text-primary"></i></a>
+                                            <a class="btn btn-primary" href="">Apply Now</a>
+                                        </div>
+                                        <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="btn btn-primary py-3 px-5" href="">Browse More Jobs</a>
+                        </div>
+                        <div id="tab-2" class="tab-pane fade show p-0">
+                            <div class="job-item p-4 mb-4">
+                                <div class="row g-4">
+                                    <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                        <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-1.jpg" alt="" style="width: 80px; height: 80px;">
+                                        <div class="text-start ps-4">
+                                            <h5 class="mb-3">Software Engineer</h5>
+                                            <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
+                                            <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>Full Time</span>
+                                            <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                        <div class="d-flex mb-3">
+                                            <a class="btn btn-light btn-square me-3" href=""><i class="far fa-heart text-primary"></i></a>
+                                            <a class="btn btn-primary" href="">Apply Now</a>
+                                        </div>
+                                        <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="job-item p-4 mb-4">
+                                <div class="row g-4">
+                                    <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                        <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-2.jpg" alt="" style="width: 80px; height: 80px;">
+                                        <div class="text-start ps-4">
+                                            <h5 class="mb-3">Marketing Manager</h5>
+                                            <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
+                                            <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>Full Time</span>
+                                            <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                        <div class="d-flex mb-3">
+                                            <a class="btn btn-light btn-square me-3" href=""><i class="far fa-heart text-primary"></i></a>
+                                            <a class="btn btn-primary" href="">Apply Now</a>
+                                        </div>
+                                        <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="job-item p-4 mb-4">
+                                <div class="row g-4">
+                                    <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                        <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-3.jpg" alt="" style="width: 80px; height: 80px;">
+                                        <div class="text-start ps-4">
+                                            <h5 class="mb-3">Product Designer</h5>
+                                            <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
+                                            <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>Full Time</span>
+                                            <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                        <div class="d-flex mb-3">
+                                            <a class="btn btn-light btn-square me-3" href=""><i class="far fa-heart text-primary"></i></a>
+                                            <a class="btn btn-primary" href="">Apply Now</a>
+                                        </div>
+                                        <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="job-item p-4 mb-4">
+                                <div class="row g-4">
+                                    <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                        <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-4.jpg" alt="" style="width: 80px; height: 80px;">
+                                        <div class="text-start ps-4">
+                                            <h5 class="mb-3">Creative Director</h5>
+                                            <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
+                                            <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>Full Time</span>
+                                            <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                        <div class="d-flex mb-3">
+                                            <a class="btn btn-light btn-square me-3" href=""><i class="far fa-heart text-primary"></i></a>
+                                            <a class="btn btn-primary" href="">Apply Now</a>
+                                        </div>
+                                        <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="job-item p-4 mb-4">
+                                <div class="row g-4">
+                                    <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                        <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-5.jpg" alt="" style="width: 80px; height: 80px;">
+                                        <div class="text-start ps-4">
+                                            <h5 class="mb-3">Wordpress Developer</h5>
+                                            <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
+                                            <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>Full Time</span>
+                                            <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                        <div class="d-flex mb-3">
+                                            <a class="btn btn-light btn-square me-3" href=""><i class="far fa-heart text-primary"></i></a>
+                                            <a class="btn btn-primary" href="">Apply Now</a>
+                                        </div>
+                                        <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="btn btn-primary py-3 px-5" href="">Browse More Jobs</a>
+                        </div>
+                        <div id="tab-3" class="tab-pane fade show p-0">
+                            <div class="job-item p-4 mb-4">
+                                <div class="row g-4">
+                                    <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                        <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-1.jpg" alt="" style="width: 80px; height: 80px;">
+                                        <div class="text-start ps-4">
+                                            <h5 class="mb-3">Software Engineer</h5>
+                                            <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
+                                            <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>Full Time</span>
+                                            <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                        <div class="d-flex mb-3">
+                                            <a class="btn btn-light btn-square me-3" href=""><i class="far fa-heart text-primary"></i></a>
+                                            <a class="btn btn-primary" href="">Apply Now</a>
+                                        </div>
+                                        <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="job-item p-4 mb-4">
+                                <div class="row g-4">
+                                    <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                        <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-2.jpg" alt="" style="width: 80px; height: 80px;">
+                                        <div class="text-start ps-4">
+                                            <h5 class="mb-3">Marketing Manager</h5>
+                                            <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
+                                            <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>Full Time</span>
+                                            <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                        <div class="d-flex mb-3">
+                                            <a class="btn btn-light btn-square me-3" href=""><i class="far fa-heart text-primary"></i></a>
+                                            <a class="btn btn-primary" href="">Apply Now</a>
+                                        </div>
+                                        <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="job-item p-4 mb-4">
+                                <div class="row g-4">
+                                    <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                        <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-3.jpg" alt="" style="width: 80px; height: 80px;">
+                                        <div class="text-start ps-4">
+                                            <h5 class="mb-3">Product Designer</h5>
+                                            <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
+                                            <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>Full Time</span>
+                                            <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                        <div class="d-flex mb-3">
+                                            <a class="btn btn-light btn-square me-3" href=""><i class="far fa-heart text-primary"></i></a>
+                                            <a class="btn btn-primary" href="">Apply Now</a>
+                                        </div>
+                                        <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="job-item p-4 mb-4">
+                                <div class="row g-4">
+                                    <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                        <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-4.jpg" alt="" style="width: 80px; height: 80px;">
+                                        <div class="text-start ps-4">
+                                            <h5 class="mb-3">Creative Director</h5>
+                                            <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
+                                            <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>Full Time</span>
+                                            <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                        <div class="d-flex mb-3">
+                                            <a class="btn btn-light btn-square me-3" href=""><i class="far fa-heart text-primary"></i></a>
+                                            <a class="btn btn-primary" href="">Apply Now</a>
+                                        </div>
+                                        <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="job-item p-4 mb-4">
+                                <div class="row g-4">
+                                    <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                        <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-5.jpg" alt="" style="width: 80px; height: 80px;">
+                                        <div class="text-start ps-4">
+                                            <h5 class="mb-3">Wordpress Developer</h5>
+                                            <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
+                                            <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>Full Time</span>
+                                            <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                        <div class="d-flex mb-3">
+                                            <a class="btn btn-light btn-square me-3" href=""><i class="far fa-heart text-primary"></i></a>
+                                            <a class="btn btn-primary" href="">Apply Now</a>
+                                        </div>
+                                        <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="btn btn-primary py-3 px-5" href="">Browse More Jobs</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <!-- Jobs End -->
+
+
+        <!-- Testimonial Start -->
+        <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="container">
+                <h1 class="text-center mb-5" data-lang-en="Our Clients Say!!!" data-lang-pl="Co Mówią Nasi Klienci!!!"
+                    data-lang-de="Was Unsere Kunden Sagen!!!">
+                    Our Clients Say!!!
+                </h1>
+                <div class="owl-carousel testimonial-carousel">
+                    <div class="testimonial-item bg-light rounded p-4">
+                        <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+                        <p data-lang-en="This service transformed my career!"
+                            data-lang-pl="Ta usługa zmieniła moją karierę!"
+                            data-lang-de="Dieser Service hat meine Karriere verändert.">
+                            This service transformed my career!
+                        </p>
+                        <div class="d-flex align-items-center">
+                            <img class="img-fluid flex-shrink-0 rounded" src="img/testimonial-1.jpg"
+                                style="width: 50px; height: 50px;">
+                            <div class="ps-3">
+                                <h5 class="mb-1" data-lang-en="Alice Johnson" data-lang-pl="Alicja Kowalska"
+                                    data-lang-de="Alice Müller">
+                                    Alice Johnson
+                                </h5>
+                                <small data-lang-en="Marketing Manager" data-lang-pl="Menadżer Marketingu"
+                                    data-lang-de="Marketing Manager">Marketing Manager</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-item bg-light rounded p-4">
+                        <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+                        <p data-lang-en="I found my dream job thanks to this platform."
+                            data-lang-pl="Znalazłem swoją wymarzoną pracę dzięki tej platformie."
+                            data-lang-de="Ich habe meinen Traumjob dank dieser Plattform gefunden.">
+                            I found my dream job thanks to this platform.
+                        </p>
+                        <div class="d-flex align-items-center">
+                            <img class="img-fluid flex-shrink-0 rounded" src="img/testimonial-2.jpg"
+                                style="width: 50px; height: 50px;">
+                            <div class="ps-3">
+                                <h5 class="mb-1" data-lang-en="Mark Smith" data-lang-pl="Marek Nowak"
+                                    data-lang-de="Markus Schmidt">
+                                    Mark Smith
+                                </h5>
+                                <small data-lang-en="Software Engineer" data-lang-pl="Inżynier Oprogramowania"
+                                    data-lang-de="Software Ingenieur">Software Engineer</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-item bg-light rounded p-4">
+                        <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+                        <p data-lang-en="Exceptional service and support throughout the process!"
+                            data-lang-pl="Wyjątkowa obsługa i wsparcie przez cały proces!"
+                            data-lang-de="Ausgezeichneter Service und Unterstützung während des gesamten Prozesses!">
+                            Exceptional service and support throughout the process!
+                        </p>
+                        <div class="d-flex align-items-center">
+                            <img class="img-fluid flex-shrink-0 rounded" src="img/testimonial-3.jpg"
+                                style="width: 50px; height: 50px;">
+                            <div class="ps-3">
+                                <h5 class="mb-1" data-lang-en="Sarah Brown" data-lang-pl="Sara Brąz"
+                                    data-lang-de="Sarah Braun">
+                                    Sarah Brown
+                                </h5>
+                                <small data-lang-en="Product Designer" data-lang-pl="Projektant Produktów"
+                                    data-lang-de="Produktdesigner">Product Designer</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-item bg-light rounded p-4">
+                        <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+                        <p data-lang-en="I highly recommend this service!" data-lang-pl="Gorąco polecam tę usługę!"
+                            data-lang-de="Ich kann diesen Service nur empfehlen!">
+                            I highly recommend this service!
+                        </p>
+                        <div class="d-flex align-items-center">
+                            <img class="img-fluid flex-shrink-0 rounded" src="img/testimonial-4.jpg"
+                                style="width: 50px; height: 50px;">
+                            <div class="ps-3">
+                                <h5 class="mb-1" data-lang-en="John Doe" data-lang-pl="Jan Kowalski"
+                                    data-lang-de="Johann Schmidt">
+                                    John Doe
+                                </h5>
+                                <small data-lang-en="Business Analyst" data-lang-pl="Analityk Biznesowy"
+                                    data-lang-de="Business Analyst">Business Analyst</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Testimonial End -->
+
+
+
+
+        <!-- Footer Start -->
+
+
+        <div class="container-fluid bg-dark footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
+            <div class="container py-5">
+                <div class="row g-5">
+                    <div class="col-lg-3 col-md-6">
+                        <h2 class="fw-bold text-primary mb-4"><span class="text-secondary">Global Prime</span></h2>
+                        <p>Your Reliable Gateway to New Job Opportunities</p>
+                        <div class="d-flex pt-2">
+                            <a class="btn btn-square btn-outline-light rounded-circle me-1"
+                                href="https://x.com/Globalprimepl" target="_blank">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+
+                            <a class="btn btn-square btn-outline-light rounded-circle me-1"
+                                href="https://www.facebook.com/share/Kg7qa5sD9yuSqQcn/?mibextid=LQQJ4d" target="_blank">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a class="btn btn-square btn-outline-light rounded-circle me-1"
+                                href="https://youtube.com/@globalprimeofficial?si=dt-liaDtuNJxK0Kf" target="_blank">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a class="btn btn-square btn-outline-light rounded-circle me-0"
+                                href="https://www.instagram.com/globalprime_official?igsh=MWJ4MTliaTliZGkwMw%3D%3D&utm_source=qr"
+                                target="_blank">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h4 class="text-light mb-4">Address</h4>
+                        <p><i class="fa fa-map-marker-alt me-3"></i>
+                            Starodębska 9,<br>
+                            87-800 Włocławek, <br>
+                            Poland
+                        </p>
+                        <p>
+                            <i class="fa fa-phone-alt me-3"></i>
+                            <a href="tel:+48786200007" class="text-light">+48 786 200 007</a>
+                        </p>
+                        <p>
+                            <i class="fa fa-whatsapp me-3"></i>
+                            <a href="https://wa.me/48786200007" class="text-light">WhatsApp</a>
+                        </p>
+                        <p>
+                            <i class="fa fa-envelope me-3"></i>
+                            <a href="mailto:globalprime@gmail.com" class="text-light">globalprime@gmail.com</a>
+                        </p>
+                    </div>
+
+
+                    <div class="col-lg-3 col-md-6">
+                        <h class="text-white mb-4">Quick Links</h5>
+                            <a class="btn btn-link text-white-50" href="">About Us</a>
+                            <a class="btn btn-link text-white-50" href="">Contact Us</a>
+                            <a class="btn btn-link text-white-50" href="">Our Services</a>
+                            <a class="btn btn-link text-white-50" href="">Privacy Policy</a>
+                            <a class="btn btn-link text-white-50" href="">Terms & Condition</a>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h4 class="text-light mb-4">Stay Connected with Global Prime </h4>
+                        <p>Subscribe to our newsletter for the latest updates, exclusive offers, and insights into
+                            sustainable living.</p>
+                        <div class="position-relative mx-auto" style="max-width: 400px;">
+                            <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5 border border-light rounded"
+                                type="email" placeholder="Enter your email address">
+                            <button type="button"
+                                class="btn btn-primary py-2 px-4 position-absolute top-0 end-0 mt-2 me-2 rounded">Subscribe</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="container-fluid copyright">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                            &copy; All Right Reserved.
+                        </div>
+                        <div class="col-md-6 text-center text-md-end">
+                            Designed By |
+                            <a href="mailto:jkjack203@gmail.com">jkjack203@gmail.com</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer End -->
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Function to switch languages
+        function setLanguage(lang) {
+            const elements = document.querySelectorAll('[data-lang-en]');
+            elements.forEach(element => {
+                const translation = element.getAttribute(`data-lang-${lang}`);
+                if (translation) {
+                    element.innerText = translation;
+                }
+            });
+        }
+
+        // Hide spinner once the page loads
+        window.onload = function () {
+            document.getElementById('spinner').style.display = 'none';
+        };
+
+
+        function setLanguage(lang, languageText) {
+            // Update the dropdown button text to the selected language
+            document.getElementById('languageDropdown').textContent = languageText;
+
+            // Set the language on the page (this is just an example; replace with your language switching logic)
+            const elements = document.querySelectorAll('[data-lang-en], [data-lang-pl], [data-lang-de]');
+            elements.forEach(el => {
+                if (lang === 'en') {
+                    el.textContent = el.getAttribute('data-lang-en');
+                } else if (lang === 'pl') {
+                    el.textContent = el.getAttribute('data-lang-pl');
+                } else if (lang === 'de') {
+                    el.textContent = el.getAttribute('data-lang-de');
+                }
+            });
+        }
+    </script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
