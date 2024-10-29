@@ -245,7 +245,11 @@ exports.fetchalljoblist = async function (req,res){
 
 exports.fetchsingledata = async function (req,res){
     try {
-        getuserData= await joblist.findOne();
+
+        let _id = req.params.id
+
+        
+        getuserData= await joblist.findOne({_id});
         console.log("getuserData",getuserData);
         let response = success_function({
          success: true,
