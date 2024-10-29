@@ -213,34 +213,32 @@
                             <form action="https://api.web3forms.com/submit" method="POST">
                                 <!-- Web3Forms Access Key -->
                                 <input type="hidden" name="access_key" value="39302882-cddb-42e9-9ea7-81e9e6be0e80">
-
+                                <!-- Hidden field to pass email -->
+                                <input type="hidden" name="email_field" id="email_field">
+                            
                                 <div class="row g-3">
                                     <div class="col-md-6">
                                         <div class="form-floating">
-                                            <input type="text" class="form-control" id="name" name="name"
-                                                placeholder="Your Name" required>
+                                            <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
                                             <label for="name">Your Name</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-floating">
-                                            <input type="email" class="form-control" id="email" name="email"
-                                                placeholder="Your Email" required>
+                                            <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" required
+                                                   oninput="document.getElementById('email_field').value = this.value;">
                                             <label for="email">Your Email</label>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-floating">
-                                            <input type="text" class="form-control" id="subject" name="subject"
-                                                placeholder="Subject" required>
+                                            <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required>
                                             <label for="subject">Subject</label>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-floating">
-                                            <textarea class="form-control" id="message" name="message"
-                                                placeholder="Leave a message here" style="height: 150px"
-                                                required></textarea>
+                                            <textarea class="form-control" id="message" name="message" placeholder="Leave a message here" style="height: 150px" required></textarea>
                                             <label for="message">Message</label>
                                         </div>
                                     </div>
@@ -249,6 +247,7 @@
                                     </div>
                                 </div>
                             </form>
+                            
 
                         </div>
                     </div>

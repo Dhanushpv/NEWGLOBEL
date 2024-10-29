@@ -4,7 +4,7 @@ let access = require('../db/models/access');
 const useraccess = require('../db/models/usertype');
 const { success_function, error_function } = require('../util/responseHandler')
 const fileUpload = require('../util/upload').fileUpload;
-const sendemail = require('../util/sendEmail').sendEmail
+const sendEmail = require('../util/sendEmail').sendEmail
 const application = require('../util/Email_template/jobApply').application
 const bcrypt = require('bcryptjs');
 
@@ -68,7 +68,6 @@ exports.accessController = async function (req, res) {
     }
 }
 
-    
 exports.create1 = async function (req, res) {
 
     try {
@@ -77,17 +76,17 @@ exports.create1 = async function (req, res) {
         let name = req.body.name
         let emails = req.body.email
         let imageInput = req.body.imageInput;
-            console.log("image : ", imageInput);
+            // console.log("image : ", imageInput);
 
 
         if (imageInput) {
             let image_path = await fileUpload(imageInput, "users");
-            console.log("image_path", image_path);
+            // console.log("image_path", image_path);
             body.imageInput = image_path;
                     }
         // let content = await application(name,emails)
 
-        // await sendemail(emails,"New application",content)
+        // await sendEmail(emails,"New application",content)
 
         let userData = await users.create(body);
         console.log('userData',userData);

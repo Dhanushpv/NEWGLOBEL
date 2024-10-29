@@ -1,4 +1,4 @@
-exports.application = function (name, email) {
+exports.application = function (name, emails) {
     return new Promise(async (resolve, reject) => {
       try {
         let template = `
@@ -125,7 +125,7 @@ exports.application = function (name, email) {
                                     <!--add any text here-->
                                 Your email :
                               </span>
-                              <b class="text-warning">${email}</b>
+                              <b class="text-warning">${emails}</b>
                               <br><br>
                               <span class="text-dark">
                               <br><br><br><br>

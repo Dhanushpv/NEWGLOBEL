@@ -2,7 +2,7 @@
 // routers/userRouter.js
 const express = require('express');
 const router = express.Router();
-const userController = require('../controller/usercontroller');
+const userController = require('../controller/userController');
 // const { adminAuth } = require('../db/models/auth');
 const accessControl =require('../util/access-control').accessControl
 
